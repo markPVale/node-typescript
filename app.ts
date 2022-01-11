@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 const app = express();
 const port = 3000;
+const config = require('./config.json');
 
 interface LocationWithTimezone {
   location: string;
@@ -9,7 +10,7 @@ interface LocationWithTimezone {
   utcOffset: number;
 };
 
-const showLocations = false;
+const showLocations = config.showLocations;
 
 let locations: LocationWithTimezone[] = [
   {
